@@ -33,12 +33,26 @@ body{
     background-color: var(--color-5);
 }
 
+body::-webkit-scrollbar{
+    width: 7px;
+
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: var(--color-1);
+    border-radius: 5px;
+}
+
 nav{
     width: 100%;
     position: absolute;
     top: 0;
     height: 5vh;
     z-index: 1; /* Asegurarse de que el nav esté sobre la imagen */
+}
+
+nav:hover{
+    cursor: default;
 }
 
 nav table {
@@ -155,6 +169,7 @@ nav a:hover:after{
 
 .info:hover {
     border-color: #D96277; /* Color del borde al hacer hover */
+    cursor: default;
     backdrop-filter: blur(2px); /* Aplicar desenfoque */
     -webkit-backdrop-filter: blur(2px); /* Compatibilidad con Safari */
 }
@@ -213,6 +228,8 @@ hr {
     }
 }
 
+/* -------------------------Division linda------------------------- */
+
 .aboutme{
     margin-top: 20px;
     height: 40vh;
@@ -223,6 +240,10 @@ hr {
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+.aboutme:hover{
+    cursor: default;
 }
 
 .title2{
@@ -279,6 +300,7 @@ hr {
     display: flex;
     justify-content: center;
     width: 100%;
+    background: transparent; /* Asegura que no haya fondo en las celdas y filas */
 }
 
 .tabla {
@@ -288,6 +310,7 @@ hr {
     border-collapse: separate;
     border-spacing: 0; /* Sin espacio entre celdas */
     text-align: center;
+    background: transparent; /* Asegura que no haya fondo en las celdas y filas */
 }
 
 .tabla th, td {
@@ -295,6 +318,7 @@ hr {
     padding: 10px; /* Espaciado interno */
     text-align: center;
     box-sizing: border-box; /* Incluye padding y border en el ancho y alto total del elemento */
+    background: transparent; /* Asegura que no haya fondo en las celdas y filas */
 }
 
 .tabla th {
@@ -358,6 +382,151 @@ hr {
 }
 
 
+/* -------------------------Division linda------------------------- */
+
+
+
+.preview-table {
+    margin: auto; /* Asegura que la tabla esté centrada en el contenedor padre */
+    border-collapse: collapse; /* Asegura que no haya espacio entre las celdas */
+}
+
+.preview-table td, .preview-table tr {
+    background: transparent; /* Asegura que no haya fondo en las celdas y filas */
+    border: none; /* Elimina cualquier borde de las celdas */
+    text-align: center;
+    vertical-align: middle; /* Centra el contenido verticalmente */
+}
+
+.proyectos {
+    width: 70%;
+    height: 50vw;
+    margin: auto;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.preview-container {
+    width: 80%;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 40px;
+    border: 3px solid var(--color-5);
+    transition: border-color 0.3s;
+    position: relative;
+    overflow: hidden; /* Para que el desenfoque no se salga del borde */
+    text-align: center;
+    justify-content: center;
+    align-items: center; /* Centra el contenido verticalmente */
+    padding: 0;
+}
+
+.preview-container:hover {
+    border-color: var(--color-1);
+}
+
+.preview {
+    width: 100%;
+    border-radius: inherit;
+    transition: filter 0.3s, opacity 0.3s;
+    text-align: center;
+    
+}
+
+.preview-container:hover .preview {
+    filter: blur(2px); /* Aplicar desenfoque a la imagen */
+    opacity: 0.7; /* Oscurecer la imagen */
+}
+
+.preview-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* Capa oscura */
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.preview-container:hover::after {
+    opacity: 1; /* Mostrar la capa oscura */
+    cursor: pointer;
+}
+
+.title3{
+    margin-bottom: 50px;
+}
+
+
+.language-icon {
+    height: 50%;
+    position: absolute;
+    top: 25%;
+    left: 30%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.preview-container:hover .language-icon {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+.preview-container-mobile {
+    width: 70%;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 40px;
+    border: 3px solid var(--color-5);
+    transition: border-color 0.3s;
+    position: relative;
+    overflow: hidden; /* Para que el desenfoque no se salga del borde */
+    text-align: center;
+    justify-content: center;
+    align-items: center; /* Centra el contenido verticalmente */
+    padding: 0;
+    display: none;
+}
+
+
+
+@media (max-width: 910px) {
+    .preview-container-mobile{
+        display:block;
+
+    }
+
+    .preview-container{
+        display: none;
+    }
+
+    .proyectos-nomostrar{
+        display: none;
+    }
+
+    .proyectos{
+        height: 0;
+    }
+
+
+}
+
+.default{
+    cursor: default;
+}
+
+
+
+
+
+/* -------------------------Division linda------------------------- */
 @media (max-width: 400px) {
     .bg {
         width: 400px;
